@@ -1529,6 +1529,124 @@ img { display: block; max-width: 100%; }
   to   { opacity: 1; transform: translateY(0); }
 }
 
+@keyframes float {
+  0%, 100% { transform: rotate(-4deg) translateY(0px); }
+  50%       { transform: rotate(-4deg) translateY(-14px); }
+}
+
+@keyframes floatBack {
+  0%, 100% { transform: rotate(6deg) translateX(78px) translateY(18px); }
+  50%       { transform: rotate(6deg) translateX(78px) translateY(6px); }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -400px 0; }
+  100% { background-position:  400px 0; }
+}
+
+@keyframes pulse-ring {
+  0%   { transform: scale(0.92); opacity: 0.6; }
+  100% { transform: scale(1.18); opacity: 0; }
+}
+
+/* Apply floating to phones */
+.phone-main {
+  animation: float 5s ease-in-out infinite;
+}
+
+.phone-back {
+  animation: floatBack 5s ease-in-out infinite 0.6s;
+}
+
+/* Stat strip */
+.stats-strip {
+  background: var(--forest-mid);
+  border-top:    1px solid rgba(62, 207, 108, 0.12);
+  border-bottom: 1px solid rgba(62, 207, 108, 0.12);
+  padding: 32px 0;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+}
+
+.stat-item {
+  text-align: center;
+  padding: 12px 24px;
+  border-right: 1px solid rgba(62, 207, 108, 0.1);
+}
+
+.stat-item:last-child { border-right: none; }
+
+.stat-number {
+  font-family: var(--serif);
+  font-size: clamp(32px, 4vw, 52px);
+  font-weight: 700;
+  color: var(--green-light);
+  line-height: 1;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.stat-label {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: #6b8a74;
+  text-transform: uppercase;
+}
+
+/* Pulse ring on hero waitlist btn */
+.btn-hero {
+  position: relative;
+}
+
+.btn-hero::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 100px;
+  border: 1.5px solid rgba(62, 207, 108, 0.4);
+  animation: pulse-ring 2.2s ease-out infinite;
+  pointer-events: none;
+}
+
+/* Reveal line under section h2 on visible */
+.section-reveal {
+  position: relative;
+  display: inline-block;
+}
+
+.section-reveal::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  height: 2px;
+  width: 0;
+  background: var(--green);
+  transition: width 0.7s cubic-bezier(0.4, 0, 0.2, 1) 0.2s;
+}
+
+.fade-in.visible .section-reveal::after {
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  .stat-item {
+    border-right: none;
+  }
+  .phone-main, .phone-back {
+    animation: none;
+  }
+}
+
 /* ==============================================
    RESPONSIVE
    ============================================== */

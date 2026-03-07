@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>How It Works — TeeSync</title>
   <meta name="description" content="TeeSync makes tee time booking as easy as sending a text. Here's the three-step process — all inside iMessage.">
-  <link rel="stylesheet" href="style.css?v=9">
+  <link rel="stylesheet" href="style.css?v=10">
   <link rel="icon" href="logo.svg" type="image/svg+xml">
 </head>
 <body>
@@ -47,160 +47,225 @@
     </a>
   </div>
 
-  <!-- PAGE HERO (dark) -->
+  <!-- PAGE HERO -->
   <section class="page-hero">
     <div class="container">
-      <div class="page-hero-inner">
+      <div class="page-hero-inner fade-in">
         <span class="eyebrow">The Process</span>
-        <h1>Easy as Sending a Text.</h1>
-        <p>TeeSync makes tee time booking as simple as 1 message. Here's exactly how it works — from suggesting a round to stepping on the first tee.</p>
+        <h1>From text to tee time in minutes.</h1>
+        <p>No app switching. No phone tag. No group chat chaos. Here's exactly how TeeSync works — start to finish.</p>
       </div>
     </div>
   </section>
 
-  <!-- 3 STEPS (cream) -->
-  <section class="steps-section">
+  <!-- STEPS: Alternating showcase layout -->
+  <section class="hiw-steps">
     <div class="container">
-      <div class="steps-intro fade-in">
+      <div class="hiw-steps-header fade-in">
         <span class="eyebrow">Step by Step</span>
         <h2>Three steps to your next round.</h2>
-        <p>No app switching. No phone tag. No group chat chaos. TeeSync lives inside iMessage so your booking flow stays inside your conversation.</p>
+        <p>TeeSync streamlines the whole process — from deciding to play to stepping on the first tee.</p>
       </div>
-      <div class="steps-grid">
-        <div class="step-card fade-in">
-          <span class="step-num">01</span>
-          <h3>Send an Invitation</h3>
-          <p>Open TeeSync, pick your course and tee time, and send an invitation to your group — all without leaving iMessage.</p>
-          <ul>
-            <li>Browse courses &amp; available times</li>
-            <li>Choose your date and player count</li>
-            <li>Send the invite in one tap</li>
-            <li>TeeSync handles the rest</li>
-          </ul>
+
+      <div class="hiw-timeline">
+
+        <!-- Step 01 -->
+        <div class="hiw-step fade-in">
+          <div class="hiw-step-content">
+            <span class="hiw-step-num">01</span>
+            <h3>Send an Invitation</h3>
+            <p>Open TeeSync, browse live tee time availability at local courses, choose the one that works, and send an invite to your group — all inside iMessage.</p>
+            <ul class="hiw-bullets">
+              <li>Browse courses and live availability</li>
+              <li>Choose your date, time, and player count</li>
+              <li>Send the TeeSync invite in one tap</li>
+            </ul>
+          </div>
+          <div class="hiw-step-visual">
+            <div class="hiw-mockup">
+              <div class="hiw-mockup-header">
+                <div class="hiw-mockup-dot hiw-dot-green"></div>
+                <span class="hiw-mockup-title">TeeSync Invite</span>
+              </div>
+              <div class="hiw-mockup-course">
+                <svg width="22" height="22" viewBox="0 0 22 22" fill="none" style="flex-shrink:0;margin-top:2px"><circle cx="11" cy="11" r="8" stroke="var(--green)" stroke-width="1.5"/><path d="M11 7v4l3 2" stroke="var(--green)" stroke-width="1.5" stroke-linecap="round"/></svg>
+                <div>
+                  <div class="hiw-mockup-course-name">Tustin Ranch Golf Course</div>
+                  <div class="hiw-mockup-course-detail">Sat, Aug 9 · 9:00 AM<br>4 Players · $72/person</div>
+                </div>
+              </div>
+              <div class="hiw-mockup-btn">Send Invite</div>
+            </div>
+          </div>
         </div>
-        <div class="step-card fade-in">
-          <span class="step-num">02</span>
-          <h3>Accept or Decline</h3>
-          <p>Everyone in the thread receives a TeeSync invitation and taps to accept or decline — right inside iMessage.</p>
-          <ul>
-            <li>One tap to accept or decline</li>
-            <li>Live response updates</li>
-            <li>Everyone stays in the loop</li>
-            <li>No back-and-forth needed</li>
-          </ul>
+
+        <!-- Step 02 -->
+        <div class="hiw-step fade-in">
+          <div class="hiw-step-content">
+            <span class="hiw-step-num">02</span>
+            <h3>Group Accepts or Declines</h3>
+            <p>Everyone receives a TeeSync invitation through iMessage and taps to accept or decline. The host sees responses live — no back-and-forth, no confusion.</p>
+            <ul class="hiw-bullets">
+              <li>One tap to accept or decline</li>
+              <li>Live response updates for the host</li>
+              <li>Everyone stays automatically in the loop</li>
+            </ul>
+          </div>
+          <div class="hiw-step-visual">
+            <div class="hiw-mockup">
+              <div class="hiw-mockup-header">
+                <div class="hiw-mockup-dot hiw-dot-green"></div>
+                <span class="hiw-mockup-title">Responses</span>
+              </div>
+              <div class="hiw-rsvp-list">
+                <div class="hiw-rsvp-item hiw-rsvp-yes">
+                  <span class="hiw-rsvp-name">Matthew</span>
+                  <span class="hiw-rsvp-status">Going</span>
+                </div>
+                <div class="hiw-rsvp-item hiw-rsvp-yes">
+                  <span class="hiw-rsvp-name">Kenji</span>
+                  <span class="hiw-rsvp-status">Going</span>
+                </div>
+                <div class="hiw-rsvp-item hiw-rsvp-yes">
+                  <span class="hiw-rsvp-name">Ryan</span>
+                  <span class="hiw-rsvp-status">Going</span>
+                </div>
+                <div class="hiw-rsvp-item hiw-rsvp-pending">
+                  <span class="hiw-rsvp-name">Alex</span>
+                  <span class="hiw-rsvp-status">Pending</span>
+                </div>
+              </div>
+              <div class="hiw-mockup-count">3 of 4 confirmed</div>
+            </div>
+          </div>
         </div>
-        <div class="step-card fade-in">
-          <span class="step-num">03</span>
-          <h3>Host Books for Everyone</h3>
-          <p>Once the group confirms, the host books the tee time for the whole group in seconds — confirmations, reminders, and payment nudges go out automatically.</p>
-          <ul>
-            <li>Host books for the whole group</li>
-            <li>Instant booking confirmation</li>
-            <li>Automatic reminders sent</li>
-            <li>Payment reminders &amp; weather updates</li>
-          </ul>
+
+        <!-- Step 03 -->
+        <div class="hiw-step fade-in">
+          <div class="hiw-step-content">
+            <span class="hiw-step-num">03</span>
+            <h3>Host Books for Everyone</h3>
+            <p>Once the group is locked in, the host books the tee time for the whole group in seconds. Confirmations, payment reminders, and weather updates go out automatically.</p>
+            <ul class="hiw-bullets">
+              <li>Host confirms and books for the full group</li>
+              <li>Instant booking confirmation sent to all</li>
+              <li>Automatic reminders leading up to the round</li>
+              <li>Weather update the morning of your tee time</li>
+            </ul>
+          </div>
+          <div class="hiw-step-visual">
+            <div class="hiw-mockup">
+              <div class="hiw-mockup-header">
+                <div class="hiw-mockup-dot hiw-dot-green"></div>
+                <span class="hiw-mockup-title">Booking Confirmed</span>
+              </div>
+              <div class="hiw-confirm">
+                <div class="hiw-confirm-check">
+                  <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M6 14l6 6L22 8" stroke="var(--green)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+                <div class="hiw-confirm-name">Tustin Ranch Golf Course</div>
+                <div class="hiw-confirm-time">Saturday, Aug 9 · 9:00 AM</div>
+                <div class="hiw-confirm-ref">Conf. #TS-4821 · 4 Players</div>
+              </div>
+            </div>
+          </div>
         </div>
+
       </div>
     </div>
   </section>
 
-  <!-- NOTIFICATION ALERT CALLOUT -->
-  <section class="callout-section">
+  <!-- ALERTS: Dark premium section -->
+  <section class="hiw-alerts">
     <div class="container">
-      <div class="callout-header fade-in">
+      <div class="hiw-alerts-header fade-in">
         <span class="eyebrow">Tee Time Alerts</span>
-        <h2>Never miss a prime time again.</h2>
-        <p>Tired of prime tee time spots getting snatched before you even wake up? TeeSync monitors courses 24/7 and alerts you the moment a qualifying slot opens — so you can book it before anyone else does.</p>
+        <h2>Never miss a prime tee time.</h2>
+        <p>Prime spots get snatched before most people are awake. TeeSync monitors courses around the clock and alerts you the moment a qualifying slot opens — so you book it first.</p>
       </div>
-      <div class="callout-items fade-in">
-        <div class="callout-item">
-          <div class="callout-icon">
-            <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-              <circle cx="9" cy="9" r="7" stroke="var(--green)" stroke-width="1.5"/>
-              <path d="M9 5v4l3 2" stroke="var(--green)" stroke-width="1.5" stroke-linecap="round"/>
+      <div class="hiw-alerts-grid fade-in">
+        <div class="hiw-alert-item">
+          <div class="hiw-alert-icon">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+              <circle cx="11" cy="11" r="8" stroke="var(--green-light)" stroke-width="1.5"/>
+              <path d="M11 7v4l3 2" stroke="var(--green-light)" stroke-width="1.5" stroke-linecap="round"/>
             </svg>
           </div>
-          <div>
-            <div class="callout-item-title">Set Your Preferences</div>
-            <div class="callout-item-text">Choose your course, date range, time window, and player count. Set it once — TeeSync watches it for you around the clock.</div>
-          </div>
+          <h3>Set Your Preferences</h3>
+          <p>Choose your course, date range, time window, and player count. Set it once — TeeSync watches it for you around the clock.</p>
         </div>
-        <div class="callout-item">
-          <div class="callout-icon">
-            <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-              <path d="M9 2v2M9 14v2M2 9h2M14 9h2" stroke="var(--green)" stroke-width="1.5" stroke-linecap="round"/>
-              <circle cx="9" cy="9" r="4" stroke="var(--green)" stroke-width="1.5"/>
+        <div class="hiw-alert-item">
+          <div class="hiw-alert-icon">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+              <path d="M11 3v2M11 17v2M3 11h2M17 11h2" stroke="var(--green-light)" stroke-width="1.5" stroke-linecap="round"/>
+              <circle cx="11" cy="11" r="5" stroke="var(--green-light)" stroke-width="1.5"/>
             </svg>
           </div>
-          <div>
-            <div class="callout-item-title">We Monitor Openings</div>
-            <div class="callout-item-text">Continuous checks for newly released tee times and last-minute cancellations that match your exact filters.</div>
-          </div>
+          <h3>We Monitor Openings</h3>
+          <p>Continuous checks for newly released tee times and last-minute cancellations that match your exact filters — 24 hours a day.</p>
         </div>
-        <div class="callout-item">
-          <div class="callout-icon">
-            <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-              <path d="M3 9l5 5L15 4" stroke="var(--green)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <div class="hiw-alert-item">
+          <div class="hiw-alert-icon">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+              <path d="M4 11l5 5L18 5" stroke="var(--green-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </div>
-          <div>
-            <div class="callout-item-title">Instant Alert</div>
-            <div class="callout-item-text">The second a qualifying slot opens, you're notified. Speed wins prime tee times — TeeSync makes sure you're always first.</div>
-          </div>
+          <h3>Instant Alert</h3>
+          <p>The second a qualifying slot opens, you're the first to know. Speed wins prime tee times — TeeSync gives you the edge.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- MORE FEATURES (dark forest, 3 cards) -->
-  <section class="how-more">
+  <!-- FEATURES: What else TeeSync does -->
+  <section class="hiw-features">
     <div class="container">
-      <div class="section-header-centered fade-in">
-        <span class="section-label">Additional Features</span>
-        <h2>More Than Just Easy Booking.</h2>
-        <p>TeeSync offers a set of tools that make planning smoother from start to finish.</p>
+      <div class="hiw-features-header fade-in">
+        <span class="eyebrow">Built-In Tools</span>
+        <h2>Everything your group needs.</h2>
+        <p>TeeSync goes beyond booking — it handles coordination, follow-up, and day-of details so you can focus on your game.</p>
       </div>
-      <div class="how-more-grid">
-        <div class="how-more-card fade-in">
-          <div class="feature-icon">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-              <circle cx="10" cy="10" r="7" stroke="rgba(255,255,255,0.7)" stroke-width="1.5"/>
-              <path d="M10 6v4l3 3" stroke="rgba(255,255,255,0.7)" stroke-width="1.5" stroke-linecap="round"/>
+      <div class="hiw-features-grid fade-in">
+        <div class="hiw-feature">
+          <div class="hiw-feature-icon">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+              <circle cx="11" cy="11" r="8" stroke="var(--green)" stroke-width="1.5"/>
+              <path d="M11 7v4l3 2" stroke="var(--green)" stroke-width="1.5" stroke-linecap="round"/>
             </svg>
           </div>
-          <h3>Shared Availability</h3>
-          <p>See who's free at a glance. Availability is updated live so you can pinpoint the best tee time for your entire group before committing.</p>
+          <h3>Live Group Availability</h3>
+          <p>See who's in at a glance. Responses update in real-time so the host always has a clear picture before pulling the trigger on a booking.</p>
         </div>
-        <div class="how-more-card fade-in">
-          <div class="feature-icon">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-              <circle cx="9" cy="9" r="6" stroke="rgba(255,255,255,0.7)" stroke-width="1.5"/>
-              <path d="M13.5 13.5L18 18" stroke="rgba(255,255,255,0.7)" stroke-width="1.8" stroke-linecap="round"/>
+        <div class="hiw-feature">
+          <div class="hiw-feature-icon">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+              <circle cx="9" cy="9" r="6" stroke="var(--green)" stroke-width="1.5"/>
+              <path d="M14 14l4 4" stroke="var(--green)" stroke-width="1.8" stroke-linecap="round"/>
             </svg>
           </div>
-          <h3>Built-In Course Search</h3>
-          <p>Browse and select from local courses without opening another app. Compare availability, pricing, and course details side-by-side.</p>
+          <h3>Course Search</h3>
+          <p>Browse and compare local courses without leaving the app. View availability, pricing, and course details side-by-side before you commit.</p>
         </div>
-        <div class="how-more-card fade-in">
-          <div class="feature-icon">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-              <path d="M4 4h12v10H4z" stroke="rgba(255,255,255,0.7)" stroke-width="1.5" stroke-linejoin="round"/>
-              <path d="M8 14v3M12 14v3M6 17h8" stroke="rgba(255,255,255,0.7)" stroke-width="1.5" stroke-linecap="round"/>
+        <div class="hiw-feature">
+          <div class="hiw-feature-icon">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+              <path d="M11 3C11 3 7 7.5 7 11a4 4 0 0 0 8 0c0-3.5-4-8-4-8z" stroke="var(--green)" stroke-width="1.5" stroke-linejoin="round"/>
+              <path d="M11 15v4M8 19h6" stroke="var(--green)" stroke-width="1.5" stroke-linecap="round"/>
             </svg>
           </div>
-          <h3>Painless Follow-Up</h3>
-          <p>Automated reminders keep everyone informed leading up to the round — including weather updates the morning of your tee time.</p>
+          <h3>Smart Reminders</h3>
+          <p>Automated reminders, payment nudges, and a weather update the morning of your round — so everyone shows up on time and ready to play.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CTA BAND (cream) -->
+  <!-- CTA -->
   <section class="how-cta-band">
     <div class="container">
-      <span class="eyebrow">Get on the Course Quicker</span>
+      <span class="eyebrow">Get on the Course</span>
       <h2>Ready to simplify your game?</h2>
-      <p>TeeSync takes care of the logistics so you can focus on your swing. Join the waitlist and be first to know when we launch.</p>
+      <p>TeeSync handles the logistics so you can focus on your swing. Join the waitlist and be first to know when we launch.</p>
       <a href="https://waitlister.me/p/teesync" target="_blank" rel="noopener" class="btn-primary">
         Join the Waitlist
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>

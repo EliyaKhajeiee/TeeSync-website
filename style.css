@@ -425,11 +425,11 @@ img { display: block; max-width: 100%; }
   display: flex;
   align-items: center;
   background: linear-gradient(145deg,
-    #060c08 0%,
-    #112518 20%,
-    #1e5030 45%,
-    #142a1c 70%,
-    #080e0a 100%
+    #071008 0%,
+    #133524 22%,
+    #2d7a48 48%,
+    #153624 74%,
+    #08110a 100%
   );
   position: relative;
   overflow: hidden;

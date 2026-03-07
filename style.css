@@ -292,7 +292,7 @@ img { display: block; max-width: 100%; }
   text-decoration: none;
 }
 
-.nav-logo-icon { height: 40px; width: 40px; border-radius: 10px; object-fit: cover; }
+.nav-logo-icon { height: 36px; width: 36px; border-radius: 9px; object-fit: cover; display: block; }
 
 .nav-logo-text {
   font-family: var(--serif);
@@ -1780,7 +1780,7 @@ img { display: block; max-width: 100%; }
   margin-bottom: 14px;
 }
 
-.footer-brand-logo-icon { width: 36px; height: 36px; border-radius: 8px; object-fit: cover; }
+.footer-brand-logo-icon { width: 34px; height: 34px; border-radius: 8px; object-fit: cover; display: block; }
 
 .footer-brand-logo-text {
   font-family: var(--serif);

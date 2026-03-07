@@ -1,14 +1,20 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" fill="none">
-  <circle cx="20" cy="20" r="20" fill="#3ecf6c"/>
-  <!-- sync arrows -->
-  <path d="M10 20a10 10 0 0 1 16.5-7.6" stroke="white" stroke-width="2.2" stroke-linecap="round" fill="none"/>
-  <path d="M30 20a10 10 0 0 1-16.5 7.6" stroke="white" stroke-width="2.2" stroke-linecap="round" fill="none"/>
-  <!-- arrow heads -->
-  <polyline points="24,9 26.5,12.4 23.2,13.4" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-  <polyline points="16,31 13.5,27.6 16.8,26.6" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-  <!-- tee -->
-  <line x1="20" y1="15" x2="20" y2="25" stroke="white" stroke-width="2" stroke-linecap="round"/>
-  <line x1="16.5" y1="15" x2="23.5" y2="15" stroke="white" stroke-width="2" stroke-linecap="round"/>
-  <!-- ball -->
-  <circle cx="20" cy="13.5" r="2.2" fill="white"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" fill="none">
+  <!-- Background circle -->
+  <circle cx="18" cy="18" r="18" fill="#3ECF6C"/>
+
+  <!-- Top sync arc: right (26,18) counterclockwise to left (10,18), sweeping over the top -->
+  <path d="M 26 18 A 8 8 0 0 0 10 18" stroke="white" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+  <!-- Arrowhead at (10,18) pointing downward (direction of travel at CCW arc end) -->
+  <path d="M 7.5 15.5 L 10 18.5 L 12.5 15.5" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+
+  <!-- Bottom sync arc: left (10,18) clockwise to right (26,18), sweeping under the bottom -->
+  <path d="M 10 18 A 8 8 0 0 1 26 18" stroke="white" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+  <!-- Arrowhead at (26,18) pointing upward (direction of travel at CW arc end) -->
+  <path d="M 23.5 20.5 L 26 17.5 L 28.5 20.5" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+
+  <!-- Golf tee: cross-bar at y=16, stem down to y=23 -->
+  <line x1="14.5" y1="16" x2="21.5" y2="16" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+  <line x1="18" y1="16" x2="18" y2="23" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+  <!-- Ball sitting on tee -->
+  <circle cx="18" cy="14" r="2" fill="white"/>
 </svg>

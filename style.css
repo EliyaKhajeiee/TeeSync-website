@@ -7,30 +7,30 @@
 }
 
 :root {
-  /* Light palette — base of the site */
+  /* Light palette — warm and inviting */
   --white:        #ffffff;
-  --cream:        #f4f7f2;
-  --sage:         #e8ede3;
-  --sage-dark:    #d4dece;
+  --cream:        #faf7f2;
+  --sage:         #eaf0e6;
+  --sage-dark:    #d0dcca;
 
-  /* Dark sections — hero, footer */
-  --forest:       #162c1e;
-  --forest-mid:   #1e3828;
-  --forest-card:  #243f2f;
+  /* "Dark" sections — rich golf green, not near-black */
+  --forest:       #2b5e3e;
+  --forest-mid:   #386e4c;
+  --forest-card:  #3e7550;
 
   /* Text */
-  --text:         #131f17;
+  --text:         #1a2b1f;
   --text-mid:     #3a5044;
-  --text-muted:   #6b8a74;
+  --text-muted:   #6b8070;
 
-  /* Green accent — buttons, highlights */
-  --green:        #2a6640;
+  /* Green accent */
+  --green:        #2b6b41;
   --green-light:  #3ecf6c;
-  --green-dim:    rgba(42, 102, 64, 0.08);
-  --green-glow:   rgba(62, 207, 108, 0.25);
+  --green-dim:    rgba(43, 107, 65, 0.07);
+  --green-glow:   rgba(62, 207, 108, 0.22);
 
   /* Borders */
-  --border-light: #dce8e0;
+  --border-light: #dce4d6;
   --border-dark:  rgba(62, 207, 108, 0.14);
 
   --radius:       12px;
@@ -449,7 +449,7 @@ img { display: block; max-width: 100%; }
   right: -10%;
   width: 70%;
   height: 120%;
-  background: radial-gradient(ellipse at center, rgba(42, 102, 64, 0.35) 0%, transparent 65%);
+  background: radial-gradient(ellipse at center, rgba(20, 60, 30, 0.25) 0%, transparent 65%);
   pointer-events: none;
 }
 

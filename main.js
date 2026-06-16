@@ -196,6 +196,20 @@ document.querySelectorAll('.faq-btn').forEach(btn => {
   });
 });
 
+// ---- Open a FAQ item from a URL hash (e.g. faq.html#privacy-policy) ----
+function openFaqFromHash() {
+  const id = window.location.hash.slice(1);
+  if (!id) return;
+  const item = document.getElementById(id);
+  if (item && item.classList.contains('faq-item')) {
+    document.querySelectorAll('.faq-item.open').forEach(o => o.classList.remove('open'));
+    item.classList.add('open');
+    item.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+}
+openFaqFromHash();
+window.addEventListener('hashchange', openFaqFromHash);
+
 // ---- Contact form → mailto ----
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {

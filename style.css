@@ -1647,8 +1647,14 @@ img { display: block; max-width: 100%; }
 
 .faq-body-inner { padding: 0 0 28px; }
 .faq-body-inner p { font-size: 16px; line-height: 1.8; }
+.faq-body-inner p + p { margin-top: 14px; }
+.faq-body-inner ul { font-size: 16px; line-height: 1.8; margin: 10px 0 4px; padding-left: 22px; }
+.faq-body-inner li { margin-bottom: 6px; }
 
 .faq-item.open .faq-body { max-height: 500px; }
+/* Legal items (Privacy Policy, Terms) hold long content */
+#privacy-policy.open .faq-body,
+#terms.open .faq-body { max-height: 6000px; }
 
 /* ==============================================
    CONTACT

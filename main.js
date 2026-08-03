@@ -212,28 +212,32 @@ function openFaqFromHash() {
 openFaqFromHash();
 window.addEventListener('hashchange', openFaqFromHash);
 
-// ---- Contact form ----
-// The form posts straight to FormSubmit, which emails info@tee-sync.com and
-// redirects back here with ?sent=1. All we do is the submit-button state and
-// the confirmation banner.
+// ---- Contact form → opens the visitor's mail app addressed to us ----
+// A mailto can fail silently when no mail client is configured, so we always
+// surface the address as a fallback right after handing off.
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
-  contactForm.addEventListener('submit', () => {
-    const btn = contactForm.querySelector('.form-submit');
-    if (btn) {
-      btn.disabled = true;
-      btn.textContent = 'Sending…';
-    }
-  });
-}
+  contactForm.addEventListener('submit', (e) => {
+    e.preventDefault();
 
-if (new URLSearchParams(location.search).has('sent')) {
-  const banner = document.getElementById('formSuccess');
-  if (banner) {
-    banner.hidden = false;
-    banner.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    history.replaceState(null, '', location.pathname);
-  }
+    const val = (n) => (contactForm.querySelector(`[name="${n}"]`)?.value || '').trim();
+    const name    = val('name');
+    const subject = val('subject');
+    const message = val('message');
+
+    if (!message) {
+      contactForm.querySelector('[name="message"]').focus();
+      return;
+    }
+
+    const body = name ? `${message}\n\n— ${name}` : message;
+    window.location.href =
+      `mailto:info@tee-sync.com?subject=${encodeURIComponent(subject || 'TeeSync Inquiry')}` +
+      `&body=${encodeURIComponent(body)}`;
+
+    const banner = document.getElementById('formSuccess');
+    if (banner) banner.hidden = false;
+  });
 }
 
 // ---- Sticky mobile download bar ----

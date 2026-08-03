@@ -212,17 +212,28 @@ function openFaqFromHash() {
 openFaqFromHash();
 window.addEventListener('hashchange', openFaqFromHash);
 
-// ---- Contact form → mailto ----
+// ---- Contact form ----
+// The form posts straight to FormSubmit, which emails info@tee-sync.com and
+// redirects back here with ?sent=1. All we do is the submit-button state and
+// the confirmation banner.
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
-  contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const name    = contactForm.querySelector('[name="name"]').value.trim();
-    const subject = contactForm.querySelector('[name="subject"]').value.trim();
-    const message = contactForm.querySelector('[name="message"]').value.trim();
-    const body    = `Name: ${name}\n\n${message}`;
-    window.location.href = `mailto:info@tee-sync.com?subject=${encodeURIComponent(subject || 'TeeSync Inquiry')}&body=${encodeURIComponent(body)}`;
+  contactForm.addEventListener('submit', () => {
+    const btn = contactForm.querySelector('.form-submit');
+    if (btn) {
+      btn.disabled = true;
+      btn.textContent = 'Sending…';
+    }
   });
+}
+
+if (new URLSearchParams(location.search).has('sent')) {
+  const banner = document.getElementById('formSuccess');
+  if (banner) {
+    banner.hidden = false;
+    banner.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    history.replaceState(null, '', location.pathname);
+  }
 }
 
 // ---- Sticky mobile download bar ----

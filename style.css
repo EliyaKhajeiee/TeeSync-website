@@ -840,6 +840,7 @@ img { display: block; max-width: 100%; }
 }
 
 .course-card {
+  display: block;
   background: var(--white);
   border: 1px solid var(--border-light);
   border-radius: var(--radius-lg);
@@ -2205,11 +2206,10 @@ img { display: block; max-width: 100%; }
 .showcase-item { margin: 0; }
 
 /* Screenshots come with their own bezel — no CSS phone frame needed here. */
-/* Fixed ratio keeps the three captions on the same baseline even though the
-   source screenshots differ by a pixel or two. */
+/* Fixed ratio keeps the three captions on the same baseline. */
 .showcase-phone {
-  aspect-ratio: 474 / 966;
-  filter: drop-shadow(0 30px 56px rgba(0, 0, 0, 0.55));
+  aspect-ratio: 720 / 1308;
+  filter: drop-shadow(0 26px 50px rgba(0, 0, 0, 0.5));
   transition: transform 0.45s var(--ease), filter 0.45s var(--ease);
 }
 
@@ -2302,6 +2302,37 @@ img { display: block; max-width: 100%; }
   color: #6b8a74;
   margin: 26px auto 0;
 }
+
+/* ---- Contact form: success banner + fallback ---- */
+
+/* a class-level display would otherwise beat the UA's [hidden] rule */
+.form-success[hidden] { display: none; }
+
+.form-success {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px 18px;
+  margin-bottom: 26px;
+  border-radius: 12px;
+  background: var(--green-dim);
+  border: 1px solid var(--green);
+  color: var(--green);
+}
+
+.form-success svg { flex-shrink: 0; margin-top: 2px; }
+.form-success strong { display: block; font-size: 14px; color: var(--text); }
+.form-success span   { font-size: 13.5px; color: var(--text-mid); }
+
+.form-submit[disabled] { opacity: 0.6; cursor: default; transform: none; }
+
+.form-fallback {
+  margin-top: 16px;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.form-fallback a { color: var(--green); text-decoration: underline; text-underline-offset: 2px; }
 
 /* ==============================================
    LEGAL PAGES (privacy / terms)

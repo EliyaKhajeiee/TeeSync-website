@@ -831,8 +831,12 @@ img { display: block; max-width: 100%; }
 
 .courses-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: 20px;
+}
+
+@media (max-width: 1240px) {
+  .courses-grid { grid-template-columns: repeat(3, 1fr); }
 }
 
 .course-card {
@@ -1221,7 +1225,8 @@ img { display: block; max-width: 100%; }
   border: 1px solid var(--sage-dark);
   border-radius: 24px;
   padding: 16px 16px;
-  min-height: auto;
+  /* tall enough for the full-height screenshot; the grid row stretches to match */
+  min-height: 592px;
   position: relative;
   overflow: hidden;
 }
@@ -1481,39 +1486,16 @@ img { display: block; max-width: 100%; }
 }
 
 /* Phone frame for step visuals */
+/* Screenshots ship with their own device bezel — no CSS phone frame here. */
 .hiw-phone {
-  width: 260px;
-  height: 540px;
-  background: #0a160d;
-  border-radius: 36px;
-  border: 1.5px solid rgba(255, 255, 255, 0.14);
-  box-shadow:
-    0 32px 72px rgba(0, 0, 0, 0.45),
-    0 0 0 1px rgba(255, 255, 255, 0.04),
-    inset 0 1px 0 rgba(255, 255, 255, 0.07);
-  overflow: hidden;
-  position: relative;
+  width: 268px;
   flex-shrink: 0;
-}
-
-.hiw-phone::before {
-  content: '';
-  position: absolute;
-  top: 12px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 60px;
-  height: 18px;
-  background: #0a160d;
-  border-radius: 16px;
-  border: 1.5px solid rgba(255, 255, 255, 0.07);
-  z-index: 30;
+  filter: drop-shadow(0 32px 60px rgba(0, 0, 0, 0.45));
 }
 
 .hiw-phone img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
   display: block;
 }
 
@@ -1977,10 +1959,472 @@ img { display: block; max-width: 100%; }
 }
 
 /* ==============================================
+   APP STORE / DOWNLOAD COMPONENTS
+   ============================================== */
+
+.apple-glyph {
+  width: 13px;
+  height: 16px;
+  flex-shrink: 0;
+  margin-top: -2px;
+}
+
+/* Official-style black App Store badge (used on dark sections) */
+.btn-appstore {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: #000;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 13px;
+  padding: 9px 24px 10px 20px;
+  cursor: pointer;
+  transition: transform 0.22s var(--ease), box-shadow 0.22s var(--ease), border-color 0.22s var(--ease);
+  white-space: nowrap;
+}
+
+.btn-appstore:hover {
+  transform: translateY(-2px);
+  border-color: rgba(62, 207, 108, 0.6);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45), 0 0 0 4px rgba(62, 207, 108, 0.12);
+}
+
+.btn-appstore-glyph {
+  width: 25px;
+  height: 30px;
+  flex-shrink: 0;
+  margin-top: -3px;
+}
+
+.btn-appstore-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 1.1;
+}
+
+.btn-appstore-text small {
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.btn-appstore-text strong {
+  font-family: var(--sans);
+  font-size: 21px;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+}
+
+.btn-appstore-sm {
+  padding: 7px 18px 8px 15px;
+  gap: 9px;
+  border-radius: 11px;
+}
+
+.btn-appstore-sm .btn-appstore-glyph { width: 19px; height: 23px; }
+.btn-appstore-sm .btn-appstore-text small { font-size: 9.5px; }
+.btn-appstore-sm .btn-appstore-text strong { font-size: 16px; }
+
+/* Live / availability pill */
+.live-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 7px 16px 7px 14px;
+  border-radius: 100px;
+  background: rgba(62, 207, 108, 0.09);
+  border: 1px solid rgba(62, 207, 108, 0.32);
+  color: var(--green-light);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 22px;
+}
+
+.live-dot {
+  position: relative;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--green-light);
+  flex-shrink: 0;
+}
+
+.live-dot::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: var(--green-light);
+  animation: livePulse 2s ease-out infinite;
+}
+
+@keyframes livePulse {
+  0%   { transform: scale(1);   opacity: 0.55; }
+  100% { transform: scale(3.2); opacity: 0; }
+}
+
+/* Hero trust row */
+.hero-trust {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 28px;
+  margin-top: 28px;
+  opacity: 0;
+  animation: fadeUp 0.85s var(--ease) forwards 0.75s;
+}
+
+.hero-trust li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #8aab96;
+}
+
+.hero-trust svg { color: var(--green-light); flex-shrink: 0; }
+
+/* Real screenshots already ship with their own device bezel, so `.is-shot`
+   strips the CSS phone chrome and keeps only the shadow + float transform. */
+.phone-main.is-shot,
+.phone-back.is-shot {
+  height: auto;
+  background: none;
+  border: none;
+  border-radius: 0;
+  overflow: visible;
+  box-shadow: none;
+}
+
+.phone-main.is-shot::before,
+.phone-back.is-shot::before { display: none; }
+
+.phone-main.is-shot { width: 306px; filter: drop-shadow(0 42px 64px rgba(0, 0, 0, 0.6)); }
+
+.phone-back.is-shot {
+  width: 258px;
+  opacity: 0.62;
+  filter: drop-shadow(0 26px 46px rgba(0, 0, 0, 0.5));
+  animation-name: floatBackShot;
+}
+
+@keyframes floatBackShot {
+  0%, 100% { transform: rotate(8deg) translateX(122px) translateY(26px); }
+  50%      { transform: rotate(8deg) translateX(122px) translateY(12px); }
+}
+
+.phone-main.is-shot img,
+.phone-back.is-shot img { width: 100%; height: auto; }
+
+.stat-number-word { font-size: clamp(24px, 3.5vw, 44px); }
+
+/* Sticky mobile download bar */
+.download-bar {
+  position: fixed;
+  left: 12px;
+  right: 12px;
+  bottom: 12px;
+  z-index: 190;
+  display: none;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  background: rgba(10, 20, 13, 0.95);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(62, 207, 108, 0.28);
+  border-radius: 16px;
+  box-shadow: 0 16px 44px rgba(0, 0, 0, 0.5);
+  transform: translateY(160%);
+  transition: transform 0.38s var(--ease);
+}
+
+.download-bar.show { transform: translateY(0); }
+
+.download-bar-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 11px;
+  flex-shrink: 0;
+}
+
+.download-bar-text {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.3;
+}
+
+.download-bar-text strong { font-size: 14px; color: #f0f7f2; font-weight: 600; }
+
+.download-bar-text span {
+  font-size: 11.5px;
+  color: #8aab96;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.download-bar-btn {
+  background: var(--green-light);
+  color: #0c1a10;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 9px 24px;
+  border-radius: 100px;
+  flex-shrink: 0;
+}
+
+/* ==============================================
+   HOME — IN-APP SHOWCASE (dark)
+   ============================================== */
+
+.showcase { padding: 110px 0; }
+
+.showcase-header {
+  text-align: center;
+  max-width: 780px;
+  margin: 0 auto 72px;
+}
+
+.showcase-header h2 { color: #f0f7f2; margin-bottom: 16px; }
+.showcase-header p   { color: #8aab96; font-size: 18px; }
+
+.showcase-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 52px;
+}
+
+.showcase-item { margin: 0; }
+
+/* Screenshots come with their own bezel — no CSS phone frame needed here. */
+/* Fixed ratio keeps the three captions on the same baseline even though the
+   source screenshots differ by a pixel or two. */
+.showcase-phone {
+  aspect-ratio: 474 / 966;
+  filter: drop-shadow(0 30px 56px rgba(0, 0, 0, 0.55));
+  transition: transform 0.45s var(--ease), filter 0.45s var(--ease);
+}
+
+.showcase-phone img { width: 100%; height: 100%; object-fit: contain; }
+
+.showcase-item:hover .showcase-phone {
+  transform: translateY(-12px);
+  filter: drop-shadow(0 44px 76px rgba(0, 0, 0, 0.65)) drop-shadow(0 0 26px rgba(62, 207, 108, 0.22));
+}
+
+.showcase-item figcaption { margin-top: 28px; }
+
+.showcase-num {
+  display: block;
+  font-family: var(--serif);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  color: var(--green-light);
+  margin-bottom: 10px;
+}
+
+.showcase-item h3 { color: #f0f7f2; margin-bottom: 8px; }
+.showcase-item figcaption p { color: #8aab96; font-size: 15px; }
+
+.showcase-cta {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin-top: 76px;
+}
+
+/* ==============================================
+   HOME — BRAND STORY (white)
+   ============================================== */
+
+.story-section { padding: 110px 0; background: var(--white); }
+
+.story-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.story-inner .eyebrow { margin-bottom: 22px; }
+.story-h2 { margin-bottom: 28px; }
+.story-p  { margin-bottom: 18px; }
+.story-p:last-of-type { margin-bottom: 32px; }
+
+.story-img {
+  width: 100%;
+  height: 440px;
+  object-fit: cover;
+  border-radius: 20px;
+  border: 1px solid var(--border-light);
+}
+
+/* ==============================================
+   FINAL CTA BAND (dark)
+   ============================================== */
+
+.final-cta { padding: 110px 0; text-align: center; }
+
+.final-cta h2 {
+  color: #f0f7f2;
+  margin: 0 auto 18px;
+  max-width: 740px;
+}
+
+.final-cta p {
+  color: #8aab96;
+  font-size: 18px;
+  max-width: 520px;
+  margin: 0 auto 40px;
+}
+
+.final-cta-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.final-cta .final-cta-note {
+  font-size: 13px;
+  color: #6b8a74;
+  margin: 26px auto 0;
+}
+
+/* ==============================================
+   LEGAL PAGES (privacy / terms)
+   ============================================== */
+
+.legal-section {
+  background: var(--cream);
+  padding: 90px 0 110px;
+}
+
+.legal-layout {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  gap: 64px;
+  align-items: start;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.legal-toc {
+  position: sticky;
+  top: 110px;
+  border-left: 2px solid var(--sage-dark);
+  padding-left: 22px;
+}
+
+.legal-toc h4 {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 14px;
+}
+
+.legal-toc ul { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+
+.legal-toc a {
+  font-size: 13.5px;
+  color: var(--text-mid);
+  transition: color 0.2s;
+}
+
+.legal-toc a:hover { color: var(--green); }
+
+.legal-body {
+  background: var(--white);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 56px 60px;
+}
+
+.legal-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 20px;
+  padding-bottom: 24px;
+  margin-bottom: 34px;
+  border-bottom: 1px solid var(--border-light);
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.legal-meta strong { color: var(--text); font-weight: 600; }
+
+.legal-body h2 {
+  font-size: clamp(20px, 2.1vw, 25px);
+  margin: 44px 0 14px;
+  scroll-margin-top: 110px;
+}
+
+.legal-body h2:first-of-type { margin-top: 0; }
+
+.legal-body h3 {
+  font-family: var(--sans);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text);
+  margin: 24px 0 8px;
+}
+
+.legal-body p  { margin-bottom: 16px; font-size: 15.5px; line-height: 1.85; color: var(--text-mid); }
+.legal-body ul { margin: 0 0 18px 20px; }
+
+.legal-body li {
+  font-size: 15.5px;
+  line-height: 1.8;
+  color: var(--text-mid);
+  margin-bottom: 9px;
+}
+
+.legal-body a { color: var(--green); text-decoration: underline; text-underline-offset: 2px; }
+.legal-body a:hover { color: #1e5030; }
+
+.legal-callout {
+  background: var(--green-dim);
+  border: 1px solid var(--sage-dark);
+  border-left: 3px solid var(--green);
+  border-radius: 10px;
+  padding: 20px 24px;
+  margin: 26px 0;
+}
+
+.legal-callout p:last-child { margin-bottom: 0; }
+
+.legal-footer-note {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+/* ==============================================
    RESPONSIVE
    ============================================== */
 
 @media (max-width: 1024px) {
+  .showcase-grid { gap: 32px; }
+  .legal-layout { grid-template-columns: 1fr; gap: 34px; }
+  .legal-toc { position: static; }
+  .legal-body { padding: 40px 34px; }
+
   .courses-grid { grid-template-columns: repeat(2, 1fr); }
   .footer-inner { grid-template-columns: 1fr 1fr; gap: 36px; }
 
@@ -2013,6 +2457,31 @@ img { display: block; max-width: 100%; }
   .hero-note    { justify-content: center; }
   .hero-sub     { margin-left: auto; margin-right: auto; }
 
+  .hero-trust {
+    justify-content: center;
+    opacity: 1;
+    animation: none;
+    gap: 8px 20px;
+  }
+
+  .showcase { padding: 76px 0; }
+  .showcase-header { margin-bottom: 48px; }
+  .showcase-grid { grid-template-columns: 1fr; gap: 52px; max-width: 340px; margin: 0 auto; }
+  .showcase-cta { margin-top: 52px; }
+
+  .story-section { padding: 76px 0; }
+  .story-inner { grid-template-columns: 1fr; gap: 44px; }
+  .story-img { height: 300px; }
+
+  .final-cta { padding: 80px 0 100px; }
+
+  .legal-section { padding: 56px 0 80px; }
+
+  .download-bar { display: flex; }
+
+  /* keep the sticky bar from covering the footer legal links */
+  .footer { padding-bottom: 110px; }
+
   .phone-main { width: 232px; height: 486px; }
   .phone-back { width: 196px; height: 412px; }
 
@@ -2027,7 +2496,8 @@ img { display: block; max-width: 100%; }
   .hiw-step:nth-child(even) .hiw-step-content { order: 0; }
   .hiw-step:nth-child(even) .hiw-step-visual  { order: 0; }
 
-  .hiw-step-visual { min-height: 260px; padding: 36px 28px; }
+  .hiw-step-visual { min-height: 0; padding: 28px 20px; }
+  .hiw-phone { width: 232px; }
 
   .hiw-alerts-grid,
   .hiw-features-grid { grid-template-columns: 1fr; }
@@ -2053,8 +2523,16 @@ img { display: block; max-width: 100%; }
 @media (max-width: 480px) {
   .container { padding: 0 20px; }
 
-  .hero-actions { flex-direction: column; width: 100%; align-items: stretch; }
-  .btn-hero, .btn-ghost-dark { width: 100%; justify-content: center; }
+  .hero-actions,
+  .showcase-cta,
+  .final-cta-actions { flex-direction: column; width: 100%; align-items: stretch; }
+
+  .btn-hero,
+  .btn-ghost-dark,
+  .btn-appstore { width: 100%; justify-content: center; }
+
+  .btn-appstore-text { align-items: center; }
+  .showcase-grid { max-width: 300px; }
 
   .courses-grid { grid-template-columns: 1fr; }
   .contact-form-box { padding: 28px 22px; }

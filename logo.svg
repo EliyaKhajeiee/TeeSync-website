@@ -1,20 +1,39 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" fill="none">
-  <!-- Background circle -->
-  <circle cx="18" cy="18" r="18" fill="#3ECF6C"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="TeeSync">
+  <!-- App icon background -->
+  <rect x="0" y="0" width="512" height="512" rx="114" fill="#2F3E2B"/>
+  <rect x="3" y="3" width="506" height="506" rx="111" fill="none" stroke="#1E2A1B" stroke-width="6"/>
 
-  <!-- Top sync arc: right (26,18) counterclockwise to left (10,18), sweeping over the top -->
-  <path d="M 26 18 A 8 8 0 0 0 10 18" stroke="white" stroke-width="2.2" stroke-linecap="round" fill="none"/>
-  <!-- Arrowhead at (10,18) pointing downward (direction of travel at CCW arc end) -->
-  <path d="M 7.5 15.5 L 10 18.5 L 12.5 15.5" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <!-- Sync arcs — gaps and arrowheads land at 1 o'clock and 7 o'clock -->
+  <g transform="rotate(-30 256 256)" fill="#EFF3E8">
+    <path d="M 89.9 211.5 A 172 172 0 0 1 424.2 220.2"
+          fill="none" stroke="#EFF3E8" stroke-width="36"/>
+    <path d="M0 40 L-31 -14 L31 -14 Z" transform="translate(424.2 220.2) rotate(-12)"/>
 
-  <!-- Bottom sync arc: left (10,18) clockwise to right (26,18), sweeping under the bottom -->
-  <path d="M 10 18 A 8 8 0 0 1 26 18" stroke="white" stroke-width="2.2" stroke-linecap="round" fill="none"/>
-  <!-- Arrowhead at (26,18) pointing upward (direction of travel at CW arc end) -->
-  <path d="M 23.5 20.5 L 26 17.5 L 28.5 20.5" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <path d="M 422.1 300.5 A 172 172 0 0 1 87.8 291.8"
+          fill="none" stroke="#EFF3E8" stroke-width="36"/>
+    <path d="M0 40 L-31 -14 L31 -14 Z" transform="translate(87.8 291.8) rotate(168)"/>
+  </g>
 
-  <!-- Golf tee: cross-bar at y=16, stem down to y=23 -->
-  <line x1="14.5" y1="16" x2="21.5" y2="16" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
-  <line x1="18" y1="16" x2="18" y2="23" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
-  <!-- Ball sitting on tee -->
-  <circle cx="18" cy="14" r="2" fill="white"/>
+  <!-- Tee -->
+  <g fill="#EFF3E8">
+    <rect x="168" y="284" width="176" height="34" rx="17"/>
+    <path d="M236 312 L276 312 L266 404 Q256 418 246 404 Z"/>
+  </g>
+
+  <!-- Ball -->
+  <circle cx="256" cy="204" r="84" fill="#EFF3E8"/>
+  <g fill="#2F3E2B">
+    <circle cx="216" cy="168" r="8"/>
+    <circle cx="250" cy="156" r="8"/>
+    <circle cx="284" cy="168" r="8"/>
+    <circle cx="306" cy="194" r="8"/>
+    <circle cx="208" cy="202" r="8"/>
+    <circle cx="242" cy="192" r="8"/>
+    <circle cx="276" cy="200" r="8"/>
+    <circle cx="220" cy="238" r="8"/>
+    <circle cx="256" cy="228" r="8"/>
+    <circle cx="292" cy="234" r="8"/>
+    <circle cx="238" cy="268" r="8"/>
+    <circle cx="274" cy="266" r="8"/>
+  </g>
 </svg>

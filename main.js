@@ -15,7 +15,9 @@ const mobileNav  = document.getElementById('mobileNav');
 hamburger.addEventListener('click', () => {
   hamburger.classList.toggle('open');
   mobileNav.classList.toggle('open');
-  document.body.style.overflow = mobileNav.classList.contains('open') ? 'hidden' : '';
+  const isOpen = mobileNav.classList.contains('open');
+  hamburger.setAttribute('aria-expanded', String(isOpen));
+  document.body.style.overflow = isOpen ? 'hidden' : '';
 });
 
 mobileNav.querySelectorAll('a').forEach(link => {
@@ -58,7 +60,7 @@ window.addEventListener('scroll', () => {
 
 // ---- Stagger delays on grids ----
 document.querySelectorAll(
-  '.features-grid, .courses-grid, .steps-grid, .how-more-grid, .founders-grid, .testimonials-list'
+  '.features-grid, .courses-grid, .steps-grid, .how-more-grid, .founders-grid, .testimonials-list, .showcase-grid'
 ).forEach(grid => {
   grid.querySelectorAll('.fade-in').forEach((item, i) => {
     item.style.transitionDelay = `${i * 0.11}s`;
@@ -221,6 +223,25 @@ if (contactForm) {
     const body    = `Name: ${name}\n\n${message}`;
     window.location.href = `mailto:info@tee-sync.com?subject=${encodeURIComponent(subject || 'TeeSync Inquiry')}&body=${encodeURIComponent(body)}`;
   });
+}
+
+// ---- Sticky mobile download bar ----
+// Slides in once the hero CTA has scrolled out of view, hides again near the footer CTA.
+const downloadBar = document.getElementById('downloadBar');
+if (downloadBar) {
+  const footerCta = document.querySelector('.final-cta');
+
+  const updateBar = () => {
+    const pastHero  = window.scrollY > window.innerHeight * 0.7;
+    const atFooter  = footerCta
+      ? footerCta.getBoundingClientRect().top < window.innerHeight * 0.9
+      : false;
+    downloadBar.classList.toggle('show', pastHero && !atFooter);
+  };
+
+  window.addEventListener('scroll', updateBar, { passive: true });
+  window.addEventListener('resize', updateBar, { passive: true });
+  updateBar();
 }
 
 // ---- Cursor glow (desktop only) ----
